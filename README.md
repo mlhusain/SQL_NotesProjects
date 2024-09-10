@@ -22,8 +22,7 @@
 | `Aggregate Function` | A function that performs a calculation on a set of values and returns a single value (e.g., `SUM`, `AVG`).|
 | `Subquery`     | A query nested inside another query.                           |
 
-
-## Library Analogy for Database Concepts:
+## Library Analogy for Database Concepts
 Database = Library: The whole collection of books and resources.
 Schema = Section/Genre: Organizational grouping within the library.
 Table = Book: Individual item within the section, containing structured information.
