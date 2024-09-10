@@ -23,9 +23,9 @@
 | `Subquery`     | A query nested inside another query.                           |
 
 ## Library Analogy for Database Concepts
-Database = Library: The whole collection of books and resources.
-Schema = Section/Genre: Organizational grouping within the library.
-Table = Book: Individual item within the section, containing structured information.
+  Database = Library: The whole collection of books and resources.
+  Schema = Section/Genre: Organizational grouping within the library.
+  Table = Book: Individual item within the section, containing structured information.
 
 ## Troubleshooting: "No active connection, no schema has been selected to create in"
 
@@ -82,10 +82,36 @@ If you encounter the following error after opening an SQL file and trying to exe
 
 ## First Thing First
 1. Drop table if exists
-2. Shwoing first 3 records and pin the table
-3. Proper Commenting
+2. Each query ends with semi-colon (;)
+3. Showing first 3 records and pin the table
+4. Proper Commenting
 
 
 
+
+## SQL Script for Managing `scores` Table
+
+This script demonstrates how to create and populate the `scores` table.
+
+```sql
+-- Drop the table if it already exists
+DROP TABLE IF EXISTS scores;
+
+-- Create the table
+CREATE TABLE scores (
+    ID VARCHAR(3),
+    Course_name VARCHAR(20),
+    Score FLOAT
+);
+
+-- Insert data into the table
+INSERT INTO scores (ID, Course_name, Score)
+VALUES
+    ('101', 'Environmental', 4),
+    ('102', 'Transportation', 3.75),
+    ('103', 'Environmental', 4),
+    ('104', 'Structural', 3.5),
+    ('105', 'Transportation', 3.75),
+    ('106', 'Hydrology', 3.25);
 
 
