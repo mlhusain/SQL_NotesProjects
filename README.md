@@ -1,3 +1,5 @@
+
+
 # PostgreSQL Basic Terminology
 
 | **Term**       | **Definition**                                                |
@@ -117,4 +119,5 @@ VALUES
 
 
 
-
+```
+## SQL
