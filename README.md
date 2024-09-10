@@ -84,7 +84,8 @@ If you encounter the following error after opening an SQL file and trying to exe
 1. Drop table if exists
 2. Each query ends with semi-colon (;)
 3. Showing first 3 records and pin the table
-4. Proper Commenting
+4. SQL is not case sensitive
+5. Proper Commenting
 
 
 
@@ -113,5 +114,7 @@ VALUES
     ('104', 'Structural', 3.5),
     ('105', 'Transportation', 3.75),
     ('106', 'Hydrology', 3.25);
+
+
 
 
