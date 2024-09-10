@@ -1,3 +1,33 @@
+# PostgreSQL Basic Terminology
+
+| **Term**       | **Definition**                                                |
+|----------------|----------------------------------------------------------------|
+| `Database`     | A collection of tables and other database objects.             |
+| `Table`        | A structured collection of data organized in rows and columns. |
+| `Column`       | A vertical entity in a table that holds data of a specific type.|
+| `Row`          | A horizontal entity in a table that represents a single record.|
+| `Schema`       | A namespace that contains database objects like tables and views.|
+| `Query`        | A request for data or operations on data using SQL commands.   |
+| `Index`        | A performance optimization feature that speeds up data retrieval.|
+| `Primary Key`  | A unique identifier for a row in a table.                     |
+| `Foreign Key`  | A column that establishes a relationship between tables.       |
+| `View`         | A virtual table based on the result of a query.                |
+| `Function`     | A stored procedure or function that performs an operation.     |
+| `Trigger`      | A function that automatically executes in response to certain events.|
+| `Transaction`  | A sequence of operations performed as a single unit of work.   |
+| `SQL`          | Structured Query Language, used to manage and manipulate relational databases.|
+| `DDL`          | Data Definition Language, used to define and modify database structures (e.g., `CREATE`, `ALTER`, `DROP`).|
+| `DML`          | Data Manipulation Language, used to manage data (e.g., `SELECT`, `INSERT`, `UPDATE`, `DELETE`).|
+| `Join`         | An operation that combines rows from two or more tables based on a related column.|
+| `Aggregate Function` | A function that performs a calculation on a set of values and returns a single value (e.g., `SUM`, `AVG`).|
+| `Subquery`     | A query nested inside another query.                           |
+
+
+## Library Analogy for Database Concepts:
+    Database = Library: The whole collection of books and resources.
+    Schema = Section/Genre: Organizational grouping within the library.
+    Table = Book: Individual item within the section, containing structured information.
+
 ## Troubleshooting: "No active connection, no schema has been selected to create in"
 
 If you encounter the following error after opening an SQL file and trying to execute it:
@@ -38,6 +68,23 @@ If you encounter the following error after opening an SQL file and trying to exe
 |                | `OID`                         | Object Identifier (internally used by PostgreSQL) |
 
 
+## Basic SQL Query Keywords
+
+| **Keyword**  | **Purpose**                                             | **Order of Use** |
+|--------------|---------------------------------------------------------|------------------|
+| `SELECT`     | Specifies the columns to be retrieved                   | 1st              |
+| `FROM`       | Specifies the table(s) from which to retrieve data      | 2nd              |
+| `WHERE`      | Filters records based on a condition                    | 3rd              |
+| `GROUP BY`   | Groups records with identical values into summary rows  | 4th              |
+| `HAVING`     | Filters groups based on a condition                      | 5th              |
+| `ORDER BY`   | Sorts the result set based on one or more columns        | 6th              |
+| `LIMIT`      | Limits the number of rows returned                       | 7th              |
+
+
+## First Thing First
+1. Drop table if exists
+2. Shwoing first 3 records and pin the table
+3. Proper Commenting
 
 
 
