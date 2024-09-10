@@ -24,9 +24,9 @@
 
 
 ## Library Analogy for Database Concepts:
-    Database = Library: The whole collection of books and resources.
-    Schema = Section/Genre: Organizational grouping within the library.
-    Table = Book: Individual item within the section, containing structured information.
+Database = Library: The whole collection of books and resources.
+Schema = Section/Genre: Organizational grouping within the library.
+Table = Book: Individual item within the section, containing structured information.
 
 ## Troubleshooting: "No active connection, no schema has been selected to create in"
 
