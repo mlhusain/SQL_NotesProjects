@@ -118,7 +118,7 @@ VALUES
     ('106', 'Hydrology', 3.25);
 ```
 ---
-##Table Structure: math_score
+## Table Structure: math_score
 
 Assume a table named math_score with columns:
 
@@ -127,22 +127,23 @@ Assume a table named math_score with columns:
     math_score – The math score of the student.
 
 
-###Query 1: Basic Selection of Data
+### Query 1: Basic Selection of Data
 To view all the data in the math_score table:
 SELECT * 
 FROM math_score;
 This will return all the rows in the math_score table. You can further limit the results using the LIMIT clause (see Query 6).
 
-###Query 2: Calculating Average Math Score by Section
-To find the average math score for each section:
+### Query 2: Calculating Average Math Score by Section
+
+To find the average math score for each section, use the following SQL query:
+
+```sql
 SELECT section_id, AVG(math_score) AS avg_score 
 FROM math_score 
 GROUP BY section_id;
 
-GROUP BY: Groups the data by section_id to perform the aggregation (average in this case).
-AVG(): Calculates the average of math_score for each group (section).
     
-###Query 3: Detailed Aggregation: Average, Count, Minimum, and Maximum
+### Query 3: Detailed Aggregation: Average, Count, Minimum, and Maximum.
 
 To get more detailed statistics (average, count, minimum, and maximum scores) for each section:
 
@@ -154,13 +155,13 @@ SELECT section_id,
 FROM math_score 
 GROUP BY section_id;
 
-This query will return the following for each section:
-avg_score: The average score.
-frequency: The number of students (rows) in each section.
-min_score: The lowest math score.
-max_score: The highest math score.
+	This query will return the following for each section:
+	avg_score: The average score.
+	frequency: The number of students (rows) in each section.
+	min_score: The lowest math score.
+	max_score: The highest math score.
 
-###Query 4: Aggregation with Ordering
+### Query 4: Aggregation with Ordering
 
 You can further order the results by section_id:
 
@@ -169,12 +170,12 @@ SELECT section_id,
        AVG(math_score) AS avg_score, 
        COUNT(*) AS frequency, 
        MIN(math_score) AS min_score, 
-       MAX(math_score) AS max_score 
-FROM math_score 
-GROUP BY section_id 
-ORDER BY section_id;
+       MAX(math_score) AS max_score
+       FROM math_score 
+       GROUP BY section_id 	
+       ORDER BY section_id;
 
-    ORDER BY: Orders the results by the section_id.
+ORDER BY: Orders the results by the section_id.
 
 ###Query 5: Using the HAVING Clause to Filter Aggregated Results
 
