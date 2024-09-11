@@ -118,101 +118,65 @@ VALUES
     ('106', 'Hydrology', 3.25);
 ```
 ---
-## Table Structure: math_score
-
-Assume a table named math_score with columns:
-
-    student_id – Unique identifier for each student.
-    section_id – The section or classroom the student belongs to.
-    math_score – The math score of the student.
-
-
-### Query 1: Basic Selection of Data
-To view all the data in the math_score table:
-SELECT * 
-FROM math_score;
-This will return all the rows in the math_score table. You can further limit the results using the LIMIT clause (see Query 6).
-
-### Query 2: Calculating Average Math Score by Section
-
-To find the average math score for each section, use the following SQL query:
+## SQL Basic Keywords 
 
 ```sql
-SELECT section_id, AVG(math_score) AS avg_score 
-FROM math_score 
+-- Display all records from the math_score table
+SELECT *
+FROM math_score;
+
+-- Calculate the average math score for each section
+-- GROUP BY clause is used to aggregate results by section_id
+SELECT section_id, AVG(math_score) AS avg_score
+FROM math_score
 GROUP BY section_id;
 
-    
-### Query 3: Detailed Aggregation: Average, Count, Minimum, and Maximum.
-
-To get more detailed statistics (average, count, minimum, and maximum scores) for each section:
-
-SELECT section_id, 
-       AVG(math_score) AS avg_score, 
-       COUNT(*) AS frequency, 
-       MIN(math_score) AS min_score, 
-       MAX(math_score) AS max_score 
-FROM math_score 
-GROUP BY section_id;
-
-	This query will return the following for each section:
-	avg_score: The average score.
-	frequency: The number of students (rows) in each section.
-	min_score: The lowest math score.
-	max_score: The highest math score.
-
-### Query 4: Aggregation with Ordering
-
-You can further order the results by section_id:
-
-
+-- Perform aggregation to calculate average, count, minimum, and maximum scores grouped by section_id
+-- GROUP BY clause is used to aggregate results by section_id
+-- This query provides a comprehensive summary of scores for each section
 SELECT section_id, 
        AVG(math_score) AS avg_score, 
        COUNT(*) AS frequency, 
        MIN(math_score) AS min_score, 
        MAX(math_score) AS max_score
-       FROM math_score 
-       GROUP BY section_id 	
-       ORDER BY section_id;
-
-ORDER BY: Orders the results by the section_id.
-
-###Query 5: Using the HAVING Clause to Filter Aggregated Results
-
-Suppose you only want sections where the average math score is greater than 92. This is where the HAVING clause is useful. HAVING is used to filter aggregated results (after GROUP BY):
-
-sql
-
-SELECT section_id, AVG(math_score) AS avg_score 
-FROM math_score 
-GROUP BY section_id 
-HAVING AVG(math_score) > 92 
+FROM math_score
+GROUP BY section_id
 ORDER BY section_id;
 
-    HAVING: Filters the aggregated result, allowing only sections with an average score greater than 92.
+-- Alternative query to check the average score in Math by classroom section
+-- GROUP BY clause is used to aggregate results by section_id
+-- ORDER BY clause sorts the results by section_id
+SELECT section_id, 
+       AVG(math_score) AS avg_score, 
+       COUNT(*) AS frequency, 
+       MIN(math_score) AS min_score, 
+       MAX(math_score) AS max_score
+FROM math_score
+GROUP BY section_id
+ORDER BY section_id;
 
-###Query 6: Limiting the Number of Results
+-- Test query to check the average score in Math without reference columns
+-- This query is commented out since it doesn't provide information on section_id
+-- SELECT AVG(math_score) AS avg_score 
+-- FROM math_score 
+-- GROUP BY section_id;
 
-To limit the number of rows returned in a result set, use the LIMIT clause:
+-- Use HAVING clause to filter the aggregated results
+-- This query finds sections where the average math score is greater than 92
+-- GROUP BY clause is used to aggregate results by section_id
+-- HAVING clause filters the results based on the aggregated average score
+SELECT section_id, 
+       AVG(math_score) AS avg_score
+FROM math_score
+GROUP BY section_id
+HAVING AVG(math_score) > 92
+ORDER BY section_id;
 
-
-SELECT * 
-FROM math_score 
-LIMIT 5;
-
-    This query will return only the first 5 rows from the math_score table.
-    For MySQL, an alternative to LIMIT is SELECT TOP:
-
-
-SELECT TOP 5 * 
-FROM math_score;
-
-###Summary of Key SQL Concepts:
-
-GROUP BY: Groups rows that have the same values into summary rows.
-AVG(): Calculates the average value.
-COUNT(): Counts the number of rows.
-MIN() / MAX(): Returns the minimum and maximum values.
-HAVING: Filters records after aggregation, often used with GROUP BY.
-LIMIT: Restricts the number of rows returned.
+-- Display all records from the math_score table
+-- Limit the number of records to 5 for MySQL
+-- In SQL Server, use TOP 5 instead of LIMIT 5
+SELECT *
+FROM math_score
+LIMIT 5;  -- For MySQL: SELECT TOP 5 * FROM math_score;
+```
     
