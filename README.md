@@ -512,7 +512,6 @@ We can calculate the 2019 population estimate by adding and subtracting componen
 Step 1: Create a Temporary Table for Population Data
 
 ```sql
-
 DROP TABLE IF EXISTS uspop;
 CREATE TEMPORARY TABLE uspop AS 
 SELECT 
@@ -529,15 +528,20 @@ FROM us_counties_pop_est;
 
 -- View the first 10 rows of the temp table
 SELECT * FROM uspop LIMIT 10;
+
 ```
 
+
+
 Step 2: Calculate 2019 Total Population Estimate
+
 ```sql
 -- Calculate the estimated population for 2019
 SELECT *,
     pop18 + births - deaths + mig19 + residual AS total_pop_19
 FROM uspop 
 LIMIT 10;
+
 ```
 
 Here's the GitHub SQL note for Module 6 (Calculated / Derived Columns):
@@ -556,7 +560,7 @@ Exploring the Schema
     How many columns are there?
     What are the data types of each column?
 
-sql
+```sql
 
 -- Display the first three rows of the table
 SELECT * FROM us_counties_pop_est LIMIT 3;
@@ -564,13 +568,14 @@ SELECT * FROM us_counties_pop_est LIMIT 3;
 -- Count distinct states in the data
 SELECT count(DISTINCT (state_name)) FROM us_counties_pop_est;
 -- Returns 51 but we know the U.S. has 50 states, indicating possible anomalies
+```
 
-Searching Methods in SQL
+###Searching Methods in SQL
 Using LIKE and ILIKE for Pattern Matching:
 
     LIKE is case-sensitive, while ILIKE is case-insensitive.
 
-sql
+```sql
 
 -- Case-sensitive search
 SELECT * FROM us_counties_pop_est WHERE state_name LIKE 'Washington';
@@ -580,10 +585,11 @@ SELECT * FROM us_counties_pop_est WHERE state_name LIKE 'washington';
 
 -- Case-insensitive search
 SELECT * FROM us_counties_pop_est WHERE state_name ILIKE 'washington';
+```
 
 Partial Matching Using ILIKE
 
-sql
+```sql
 
 -- Find states containing 'colo'
 SELECT * FROM us_counties_pop_est WHERE state_name ILIKE '%colo%';
@@ -591,10 +597,11 @@ SELECT * FROM us_counties_pop_est WHERE state_name ILIKE '%colo%';
 -- Count rows where state name contains 'colo'
 SELECT count(*) FROM us_counties_pop_est WHERE state_name ILIKE '%colo%';
 -- Returns: 64
+```
 
 Find Counties Containing "dc"
 
-sql
+```sql
 
 -- Query to find counties that have 'dc' in their names (case-insensitive)
 SELECT * FROM us_counties_pop_est WHERE county_name ILIKE '%dc%';
@@ -604,8 +611,9 @@ Basic Mathematical Operators
 
     The ANSI standard operators (+, -, *, /) are common across databases.
     PostgreSQL supports additional operators like exponentiation (^), square root (|/), and modulus (%).
+```
 
-sql
+```sql
 
 -- Addition
 SELECT 2+3; -- Result: 5
@@ -621,6 +629,7 @@ SELECT 2/3; -- Result: 0 (integer division)
 
 -- Division (floating point)
 SELECT 2.0/3; -- Result: 0.6666666666666667
+```
 
 CAST: Data Type Conversion
 General Form of Data Type Conversion
@@ -628,7 +637,7 @@ General Form of Data Type Conversion
     CAST(expression AS target_data_type)
     PostgreSQL shorthand: expression::target_data_type
 
-sql
+```sql
 
 -- Convert an integer to numeric to perform decimal division
 SELECT CAST(5 AS numeric)/2;  -- Returns: 2.5
@@ -639,8 +648,9 @@ Calculate Natural Increase in 2019
 
 We can calculate the 2019 population estimate by adding and subtracting components like births, deaths, migration, and residual changes.
 Step 1: Create Temporary Table for Population Data
+```
 
-sql
+```sql
 
 DROP TABLE IF EXISTS uspop;
 CREATE TEMPORARY TABLE uspop AS 
@@ -658,16 +668,18 @@ FROM us_counties_pop_est;
 
 -- View the first 10 rows of the temp table
 SELECT * FROM uspop LIMIT 10;
+```
 
 Step 2: Calculate 2019 Total Population Estimate
 
-sql
+```sql
 
 -- Calculate the estimated population for 2019
 SELECT *,
     pop18 + births - deaths + mig19 + residual AS total_pop_19
 FROM uspop 
 LIMIT 10;
+```
 
 Validate the 2019 Population Estimate
 
@@ -677,6 +689,7 @@ Validate the 2019 Population Estimate
 SELECT *,
     pop19 - (pop18 + births - deaths + mig19 + residual) AS difference 
 FROM uspop;
+
 ```
 
 
