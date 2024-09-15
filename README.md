@@ -402,7 +402,7 @@ WHERE students.id IS NOT NULL;
 ---
 ## Importing CSV file Using Dbeave/PgAdmin
 - Exploring Data type and size such as bigint or int
--Right-clicking on Tables under the schema - improt data- select the csv locaton - next- configure column structure option at top right corner- check and configure the columns based on exploration at first - next - proceed- next
+--Right-clicking on  the schema - improt data- select the csv locaton - next- configure column structure option at top right corner- check and configure the columns based on exploration at first - next - proceed- next
 ---
 ## Export Data Using Dbeaver
 ### Table from schema: 
