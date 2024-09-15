@@ -429,13 +429,15 @@ Exploring the Schema
     How many columns are there?
     What are the data types of each column?
 
-
+```sql
 -- Display the first three rows of the table
 SELECT * FROM us_counties_pop_est LIMIT 3;
 
 -- Count distinct states in the data
 SELECT count(DISTINCT (state_name)) FROM us_counties_pop_est;
 -- Returns 51 but we know the U.S. has 50 states, indicating possible anomalies
+```
+
 
 
 
