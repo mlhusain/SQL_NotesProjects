@@ -404,3 +404,10 @@ WHERE students.id IS NOT NULL;
 - Exploring Data type and size such as bigint or int
 -Right-clicking on Tables under the schema - improt data- select the csv locaton - next- configure column structure option at top right corner- check and configure the columns based on exploration at first - next - proceed- next
 ---
+## Export Data Using Dbeaver
+### Table from schema: 
+go to scema - table - rigt click on the table- Export- select location- next- next
+### Table from subquery 
+right click on result table - export data- select location - next - next
+---
+
