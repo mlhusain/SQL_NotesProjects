@@ -553,9 +553,104 @@ SELECT *,
 FROM uspop;
 ```
 
+## Calculating Percent Area
+### a) Percent Land Area
+
+```sql
+SELECT state_name AS state, county_name AS county, 
+area_land::NUMERIC / (area_land + area_water) * 100 AS perc_land_area 
+FROM us_counties_pop_est;
+```
+
+### a) Percent water Area
+```sql
+SELECT state_name AS state, county_name AS county, 
+area_water::NUMERIC / (area_land + area_water) * 100 AS perc_water_area 
+FROM us_counties_pop_est;
+```
+
+### c) Precaution: Casting During Integer Division
+When performing integer division, numeric casting is required to ensure correct division results. For instance, rounding results after division ensures precision.
 
 
+### Using the ROUND Function:Round Land Area Percentage
+```sql
+SELECT state_name AS state, county_name AS county, 
+round(area_land::NUMERIC / (area_land + area_water) * 100, 2) AS perc_land_area 
+FROM us_counties_pop_est;
 
+SELECT state_name AS state, county_name AS county, 
+round(area_water::NUMERIC / (area_land + area_water) * 100, 2) AS perc_water_area 
+FROM us_counties_pop_est;
 
+```
 
+## Using CASE Statements: 
+A CASE statement works like an IF-ELSE function. Here's an example to label regions based on numeric codes.
+
+```sql
+
+SELECT region, count(*) 
+FROM us_counties_pop_est 
+GROUP BY region;
+
+SELECT region, count(*) 
+FROM us_counties_pop_est 
+GROUP BY 1;
+
+SELECT state_fips, county_fips, region, state_name,
+CASE 
+    WHEN region = 1 THEN 'Northeast Region'
+    WHEN region = 2 THEN 'Midwest Region'
+    WHEN region = 3 THEN 'South Region'
+    WHEN region = 4 THEN 'West Region'
+    ELSE 'Other'
+END AS region_name 
+FROM us_counties_pop_est 
+LIMIT 10;
+
+WITH region_name_table AS (
+    SELECT state_fips, county_fips, region, state_name,
+    CASE 
+        WHEN region = 1 THEN 'Northeast Region'
+        WHEN region = 2 THEN 'Midwest Region'
+        WHEN region = 3 THEN 'South Region'
+        WHEN region = 4 THEN 'West Region'
+        ELSE 'Other'
+    END AS region_name 
+    FROM us_counties_pop_est
+)
+SELECT region_name, count(*) 
+FROM region_name_table 
+GROUP BY region_name;
+```
+
+## Quiz: Temporary Table and Conditional Columns
+### a) Creating a Temporary Table with Percent Water Area
+
+The following code creates a temporary table, water_area, with columns for both land and water percentage areas:
+
+```sql
+
+DROP TABLE IF EXISTS water_area;
+CREATE TEMPORARY TABLE water_area AS
+SELECT state_name AS state, county_name AS county,
+-- Calculate percent land area
+round(area_land::NUMERIC / (area_land + area_water) * 100, 2) AS perc_land_area,
+-- Calculate percent water area
+round(area_water::NUMERIC / (area_land + area_water) * 100, 2) AS perc_water_area
+FROM us_counties_pop_est ucpe;
+```
+
+### b) Querying the Number of Counties with Water Area under 10%
+
+To find the number of counties with a water area under 10%, you can use the following query:
+
+```sql
+
+SELECT * 
+FROM water_area 
+WHERE perc_water_area < 10;
+```
+---
 
