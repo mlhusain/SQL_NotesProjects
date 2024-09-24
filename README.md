@@ -714,6 +714,221 @@ This ranks employees within each department (PARTITION BY department_id) based o
 
 ---
 
+### Here is a comprehensive overview of all Aggregate Window Functions, including the Standard Deviation window functions:
+
+#### Common Aggregate Window Functions
+
+1. SUM(): Calculates the cumulative total of values within a window.
+
+```sql
+SELECT department, salary, 
+SUM(salary) OVER (PARTITION BY department ORDER BY hire_date) AS running_total
+FROM employees;
+```
+
+2. COUNT(): Counts the number of rows within a window.
+
+```sql
+SELECT department, 
+COUNT(*) OVER (PARTITION BY department) AS employee_count
+FROM employees;
+```
+
+3. AVG(): Computes the average value within the window.
+
+```sql
+SELECT department, salary, 
+AVG(salary) OVER (PARTITION BY department) AS avg_salary
+FROM employees;
+```
+
+4. MIN(): Finds the minimum value in the window.
+
+```sql
+SELECT department, salary, 
+MIN(salary) OVER (PARTITION BY department) AS min_salary
+FROM employees;
+```
+
+5. MAX(): Finds the maximum value in the window.
+
+```sql
+SELECT department, salary, 
+MAX(salary) OVER (PARTITION BY department) AS max_salary
+FROM employees;
+```
+
+
+#### Rank and Row Window Functions
+
+6. ROW_NUMBER(): Assigns a unique row number within each partition.
+
+```sql
+SELECT department, salary, 
+ROW_NUMBER() OVER (PARTITION BY department ORDER BY salary DESC) AS rank
+FROM employees;
+```
+
+7. RANK(): Assigns ranks, but gives the same rank to equal values and skips ranks for ties.
+
+```sql
+SELECT department, salary, 
+RANK() OVER (PARTITION BY department ORDER BY salary DESC) AS rank
+FROM employees;
+```
+
+8. DENSE_RANK(): Similar to RANK(), but does not skip ranks for ties.
+
+```sql
+SELECT department, salary, 
+DENSE_RANK() OVER (PARTITION BY department ORDER BY salary DESC) AS dense_rank
+FROM employees;
+```
+
+9. NTILE(): Divides rows into a specified number of buckets or groups.
+
+```sql
+SELECT department, salary, 
+NTILE(4) OVER (PARTITION BY department ORDER BY salary DESC) AS salary_quartile
+FROM employees;
+```
+
+
+#### Lag/Lead Window Functions
+
+10. LAG(): Returns the value from the previous row in the window.
+
+
+```sql
+SELECT employee_id, salary, 
+LAG(salary) OVER (PARTITION BY department ORDER BY hire_date) AS prev_salary
+FROM employees;
+```
+
+11. LEAD(): Returns the value from the next row in the window.
+
+
+```sql
+SELECT employee_id, salary, 
+LEAD(salary) OVER (PARTITION BY department ORDER BY hire_date) AS next_salary
+FROM employees;
+```
+
+#### First and Last Value Window Functions
+
+12. FIRST_VALUE(): Returns the first value in the window.
+
+
+```sql
+SELECT employee_id, hire_date, salary, 
+FIRST_VALUE(salary) OVER (PARTITION BY department ORDER BY hire_date) AS first_salary
+FROM employees;
+```
+
+13. LAST_VALUE(): Returns the last value in the window.
+
+
+```sql
+SELECT employee_id, hire_date, salary, 
+LAST_VALUE(salary) OVER (PARTITION BY department ORDER BY hire_date) AS last_salary
+FROM employees;
+```
+
+#### Standard Deviation Window Functions
+
+14. STDDEV_POP(): Calculates the population standard deviation within the window.
+
+
+
+Use this when you have the complete dataset (the population).
+
+
+```sql
+SELECT department, salary, 
+STDDEV_POP(salary) OVER (PARTITION BY department) AS stddev_pop_salary
+FROM employees;
+```
+
+15. STDDEV_SAMP(): Calculates the sample standard deviation within the window.
+
+
+
+#### Use this when you're working with a subset of data (a sample).
+
+```sql
+SELECT department, salary, 
+STDDEV_SAMP(salary) OVER (PARTITION BY department) AS stddev_samp_salary
+FROM employees;
+```
+
+Variance Window Functions (Related to Standard Deviation)
+
+16. VAR_POP(): Calculates the population variance within the window.
+
+
+
+#### Variance is the square of the standard deviation.
+
+```sql
+SELECT department, salary, 
+VAR_POP(salary) OVER (PARTITION BY department) AS var_pop_salary
+FROM employees;
+```
+
+17. VAR_SAMP(): Calculates the sample variance within the window.
+
+```sql
+SELECT department, salary, 
+VAR_SAMP(salary) OVER (PARTITION BY department) AS var_samp_salary
+FROM employees;
+```
+
+### Example with Multiple Aggregate Window Functions:
+
+```sql
+SELECT employee_id, department, salary,
+   SUM(salary) OVER (PARTITION BY department ORDER BY hire_date) AS running_total,
+   AVG(salary) OVER (PARTITION BY department) AS avg_salary,
+   STDDEV_SAMP(salary) OVER (PARTITION BY department) AS stddev_salary,
+   RANK() OVER (PARTITION BY department ORDER BY salary DESC) AS rank
+FROM employees;
+```
+
+#### Explanation of Key Clauses:
+
+1. PARTITION BY: Divides the dataset into partitions or groups. The window function is applied within each partition.
+
+Example: PARTITION BY department groups the data by department.
+
+
+
+2. ORDER BY: Defines the order of rows within each partition.
+
+Example: ORDER BY hire_date orders rows based on the hire date within the partition.
+
+
+
+3. Frame Clause: Optional, it defines a subset of rows in the window for the calculation (like ROWS BETWEEN 1 PRECEDING AND CURRENT ROW).
+
+
+
+
+---
+
+##### Key Takeaways:
+
+Aggregate window functions allow you to calculate cumulative, ranking, and statistical functions (like standard deviation) over a defined window of rows.
+
+Window functions do not collapse the rows like GROUP BY; they allow you to maintain row-level detail while computing aggregates.
+
+Common window functions include SUM(), AVG(), COUNT(), STDDEV_POP(), STDDEV_SAMP(), VAR_POP(), and VAR_SAMP().
+
+
+These functions are especially powerful for performing advanced analytics, like calculating running totals, ranking data, and analyzing variability within datasets.
+
+
+
+----
 
 ## WINDOW vs ORDER BY
 
