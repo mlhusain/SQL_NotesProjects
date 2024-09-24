@@ -69,6 +69,8 @@ If you encounter the following error after opening an SQL file and trying to exe
 |                | `OID`                         | Object Identifier (internally used by PostgreSQL) |
 
 
+---
+
 ## Basic SQL Query Keywords
 
 | **Keyword**  | **Purpose**                                             | **Order of Use** |
@@ -82,6 +84,8 @@ If you encounter the following error after opening an SQL file and trying to exe
 | `LIMIT`      | Limits the number of rows returned                       | 7th              |
 
 
+---
+
 ## First Thing First
 1. Drop table if exists
 2. Each query ends with semi-colon (;)
@@ -90,7 +94,7 @@ If you encounter the following error after opening an SQL file and trying to exe
 5. Proper Commenting
 
 
-
+---
 
 ## SQL Script for Managing `scores` Table
 
@@ -328,10 +332,16 @@ UNION
 SELECT 'students2' AS table_name, COUNT(*) AS value_count 
 FROM students2;
 ```
-## Temporary Tables and common Table Expression (CTE)
+
+---
+
+## Temporary Tables and Common Table Expression (CTE)
+
 1. Create and Query Temporary Table
+
 ```sql
 -- Create a temporary table combining data from 'students' and 'students2'
+
 CREATE TEMPORARY TABLE students_combined AS 
 SELECT * 
 FROM students 
@@ -344,7 +354,9 @@ ORDER BY id;
 SELECT * 
 FROM students_combined;
 ```
+
 2. Subquery for Row Count
+
 ```sql
 -- Count rows using a subquery with UNION ALL
 SELECT COUNT(*) 
@@ -357,7 +369,9 @@ FROM (
     ORDER BY id
 ) AS a;
 ```
+
 3. Common Table Expression (CTE)
+
 ```sql
 -- Use a CTE to combine 'students' and 'students2', and count rows
 WITH a AS (
@@ -377,6 +391,7 @@ FROM math_score;
 ## Additional Query
 
 Count Non-Null Student IDs After RIGHT JOIN
+
 ```sql
 -- Count the number of non-null student IDs after a RIGHT JOIN between 'students' and 'math_score'
 SELECT COUNT(*) 
