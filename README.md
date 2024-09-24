@@ -715,4 +715,36 @@ This ranks employees within each department (PARTITION BY department_id) based o
 ---
 
 
+## WINDOW vs ORDER BY
+
+
+GROUP BY: Aggregates data by grouping rows based on specified columns. Each group returns a single row with aggregate results (e.g., SUM, COUNT). It collapses rows into a summary.
+
+Example: Grouping sales by region to get the total sales per region.
+
+```sql
+SELECT region, SUM(sales)
+FROM sales_data
+GROUP BY region;
+```
+
+Window Functions: Operate over a set of rows related to the current row without collapsing them into one. They allow you to compute aggregates while still keeping the original rows visible.
+
+Example: Calculating a running total of sales across regions while keeping all rows.
+
+```sql
+SELECT region, sales, SUM(sales) OVER (PARTITION BY region ORDER BY date) AS running_total
+FROM sales_data;
+```
+
+Key Differences:
+
+GROUP BY reduces rows; Window Functions retain all rows.
+
+Window Functions provide aggregate results without losing row-level detail.
+
+GROUP BY is limited to group-level operations, while Window Functions offer more flexibility (e.g., row comparisons within partitions).
+
+---
+
 
