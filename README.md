@@ -693,7 +693,26 @@ This ranks employees within each department (PARTITION BY department_id) based o
 
 ---
 
+### Window Functions in a Columns
 
+| **Window Function** | **Description**                               | **Example**                                  |
+|---------------------|-----------------------------------------------|----------------------------------------------|
+| `ROW_NUMBER()`      | Assigns a unique row number to each row.      | `ROW_NUMBER() OVER (ORDER BY salary)`        |
+| `RANK()`            | Assigns a rank with gaps for ties.            | `RANK() OVER (ORDER BY salary DESC)`         |
+| `DENSE_RANK()`      | Assigns a rank without gaps for ties.         | `DENSE_RANK() OVER (ORDER BY salary DESC)`   |
+| `NTILE(n)`          | Divides rows into `n` equal groups.           | `NTILE(4) OVER (ORDER BY salary)`            |
+| `LAG()`             | Returns the value from the previous row.      | `LAG(salary, 1) OVER (ORDER BY emp_id)`      |
+| `LEAD()`            | Returns the value from the next row.          | `LEAD(salary, 1) OVER (ORDER BY emp_id)`     |
+| `FIRST_VALUE()`     | Returns the first value in a partition.       | `FIRST_VALUE(salary) OVER (ORDER BY emp_id)` |
+| `LAST_VALUE()`      | Returns the last value in a partition.        | `LAST_VALUE(salary) OVER (ORDER BY emp_id)`  |
+| `SUM()`             | Returns the cumulative sum of values.         | `SUM(salary) OVER (PARTITION BY dept_id)`    |
+| `AVG()`             | Returns the average value.                    | `AVG(salary) OVER (PARTITION BY dept_id)`    |
+| `COUNT()`           | Returns the number of rows.                   | `COUNT(*) OVER (PARTITION BY dept_id)`       |
+| `MAX()`             | Returns the maximum value.                    | `MAX(salary) OVER (PARTITION BY dept_id)`    |
+| `MIN()`             | Returns the minimum value.                    | `MIN(salary) OVER (PARTITION BY dept_id)`    |
+
+
+---
 
 
 
