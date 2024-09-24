@@ -654,6 +654,46 @@ WHERE perc_water_area < 10;
 ```
 ---
 
-# Window Function 
+# Window Functions
+
+### The syntax of a window function in SQL typically follows this format:
+
+```sql
+<window_function>(expression) 
+OVER ([PARTITION BY column] [ORDER BY column])
+```
+
+#### Explanation:
+
+1. <window_function>: This can be any aggregate function like SUM(), AVG(), ROW_NUMBER(), etc., that operates over a "window" of rows.
+
+
+2. expression: Defines the target column or expression to apply the function on.
+
+
+3. OVER: Defines the "window" over which the function operates.
+
+PARTITION BY: (Optional) Divides the result set into partitions, and the function is applied to each partition independently.
+
+ORDER BY: (Optional) Orders rows within each partition before applying the window function.
+
+
+
+
+Example:
+```sql
+SELECT 
+    employee_id, 
+    department_id, 
+    salary, 
+    RANK() OVER (PARTITION BY department_id ORDER BY salary DESC) AS salary_rank
+FROM employees;
+```
+This ranks employees within each department (PARTITION BY department_id) based on their salary (ORDER BY salary DESC).
+
+---
+
+
+
 
 
