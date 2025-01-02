@@ -41,6 +41,11 @@ If you encounter the following error after opening an SQL file and trying to exe
 3. Ensure the connection is active before attempting to execute the SQL file.
 4. This should resolve the issue.
 
+---
+
+## Troubleshooting: SQL Script files always have to open from Flile manu of Dbeaver
+---
+
 ## SQL Data Types
 | **Category**   | **Data Type**                | **Description**                               |
 |----------------|-------------------------------|-----------------------------------------------|
