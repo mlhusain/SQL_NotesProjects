@@ -37,7 +37,7 @@
 5. Status bar
 
 
-## DBeaver - Uses of it
+## DBeaver - Uses
 1. open a new script - from toolbar
 2. file open - from file menu (not from laptop location)
 3. database connection after installing DBeaver - from toolbar (plug sign)
