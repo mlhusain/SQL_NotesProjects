@@ -1,6 +1,4 @@
-
-
-# PostgreSQL Basic Terminology
+## PostgreSQL Basic Terminology
 
 | **Term**       | **Definition**                                                |
 |----------------|----------------------------------------------------------------|
