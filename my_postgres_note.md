@@ -25,9 +25,9 @@
 | `Subquery`     | A query nested inside another query.                           |
 
 ## Library Analogy for Database Concepts
-	Database = Library: The whole collection of books and resources.
-  	Schema = Section/Genre: Organizational grouping within the library.
-  	Table = Book: Individual item within the section, containing structured information.
+Database = Library: The whole collection of books and resources.
+Schema = Section/Genre: Organizational grouping within the library.
+Table = Book: Individual item within the section, containing structured information.
 
 ## DBeaver Interface
 1. Menu Bar
