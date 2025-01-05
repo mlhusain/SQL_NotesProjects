@@ -41,7 +41,7 @@
 1. Opening a new script - from toolbar
 2. File opening - from file menu (not from laptop location)
 3. Database connection after installing DBeaver - from toolbar (plug sign)
-4. Database and schema connection of a new script and an opening file - from toolbar - a dropdown ( database and page sign)
+4. Database and schema connection of a new script and an opening file - from toolbar - a dropdown ( database and page sign) --- Otherwise it will show no active connection
 5. Creating a new schema: Database from view - Databases - postgres - schema - right click on schema - create new schema
 6. Execute SQL script - ctrl + enter
 7. Script save - file menu - save as
