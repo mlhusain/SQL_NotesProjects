@@ -52,6 +52,8 @@
     a. From Schema: schema - table - right click on table - export
     b. From Subquery Result - right click on subquery result - export data
 
+---
+
 ## Troubleshooting: "No active connection, no schema has been selected to create in"
 
 If you encounter the following error after opening an SQL file and trying to execute it:
