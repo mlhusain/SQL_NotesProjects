@@ -58,7 +58,7 @@
 | **Category**   | **Data Type**                | **Description**                               |
 |----------------|-------------------------------|-----------------------------------------------|
 | **Numeric**    | `INT`, `INTEGER`              | Integer values                                |
-|                | `BIGINT`                      | Large integer values                         |
+|                | `BIGINT`                      | Large integer values (more than 10 digits)                        |
 |                | `SMALLINT`                    | Small integer values                         |
 |                | `DECIMAL`, `NUMERIC`          | Exact numeric values with specified precision |
 |                | `FLOAT`, `REAL`               | Approximate numeric values (floating-point)  |
