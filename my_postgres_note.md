@@ -29,7 +29,7 @@
   	Schema = Section/Genre: Organizational grouping within the library.
   	Table = Book: Individual item within the section, containing structured information.
 
-##DBeaver Interface
+## DBeaver Interface
 1. Menu Bar
 2. Toolbar
 3. View
@@ -37,7 +37,7 @@
 5. Status bar
 
 
-##DBeaver - Uses of it
+## DBeaver - Uses of it
 1. open a new script - from toolbar
 2. file open - from file menu (not from laptop location)
 3. database connection after installing DBeaver - from toolbar (plug sign)
