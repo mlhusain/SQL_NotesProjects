@@ -38,7 +38,7 @@
 
 
 ## DBeaver - Uses
-1. Opening a new script - from toolbar
+1. Opening a new script - from toolbar (blank page sign)
 2. File opening - from file menu (not from laptop location)
 3. Database connection after installing DBeaver - from toolbar (plug sign)
 4. Database and schema connection of a new script and an opening file - from toolbar - a dropdown ( database and page sign) --- Otherwise it will show no active connection
@@ -54,22 +54,7 @@
 
 ---
 
-## Troubleshooting: "No active connection, no schema has been selected to create in"
 
-If you encounter the following error after opening an SQL file and trying to execute it:
-
-
-### Solution
-
-1. Go to the toolbar.
-2. From the dropdown menu, select the correct database and schema to connect to.
-3. Ensure the connection is active before attempting to execute the SQL file.
-4. This should resolve the issue.
-
----
-
-## Troubleshooting: SQL Script files always have to open from Flile manu of Dbeaver
----
 
 ## SQL Data Types
 | **Category**   | **Data Type**                | **Description**                               |
