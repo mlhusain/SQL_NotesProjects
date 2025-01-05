@@ -29,6 +29,29 @@
   	Schema = Section/Genre: Organizational grouping within the library.
   	Table = Book: Individual item within the section, containing structured information.
 
+##DBeaver Interface
+1. Menu Bar
+2. Toolbar
+3. View
+4. Editor
+5. Status bar
+
+
+##DBeaver - Uses of it
+1. open a new script - from toolbar
+2. file open - from file menu (not from laptop location)
+3. database connection after installing DBeaver - from toolbar (plug sign)
+4. database and schema connection of a new script and an opening file - from toolbar - a dropdown ( database and page sign)
+5. Creating a new schema: Database from view - Databases - postgres - schema - right click on schema - create new schema
+6. Execute SQL script - ctrl + enter
+7. Script save - file menu - save as
+8. Import excel/csv file:
+   a. Exploring data type and data size (bigint or int)
+   b. Schema - right on the that schema - import data - select the csv location - next - configure column structure option at the top right corner - check and configure the columns based on exploration before - next - proceed - next.
+9. Export Data:
+    a. From Schema: schema - table - right click on table - export
+    b. From Subquery Result - right click on subquery result - export data
+
 ## Troubleshooting: "No active connection, no schema has been selected to create in"
 
 If you encounter the following error after opening an SQL file and trying to execute it:
