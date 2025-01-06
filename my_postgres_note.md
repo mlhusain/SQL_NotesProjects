@@ -289,7 +289,7 @@ INSERT INTO students2 (id, first_name, last_name, grade) VALUES
 ('110', 'Yasmin', 'Tazreen', 8),
 ('101', 'Abdul', 'Latif', 9);
 ```
-## JOIN Operations (Left join means left table priority all records from the left table will retrieve, and right join means right table priority)
+## JOIN Operations (Left join means left table priority all records from the left table will retrieve, and right join means right table priority)\
 1. INNER JOIN Between scores and students
 ```sql
 -- Retrieve all records where there is a match between 'scores' and 'students' on 'id'
@@ -326,7 +326,8 @@ UNION
 SELECT * 
 FROM math_score;
 ```
-2. UNION ALL Between students and students2
+2. UNION ALL Between students and students2\
+
 ```sql
 -- Combine results from 'students' and 'students2' including duplicates, and sort by 'id'
 SELECT * 
@@ -453,8 +454,8 @@ Topics Covered:
 
 Exploring the Schema
 
-    How many tables are in the schema?
-    How many columns are there?
+    How many tables are in the schema?\
+    How many columns are there?\
     What are the data types of each column?
 
 ```sql
