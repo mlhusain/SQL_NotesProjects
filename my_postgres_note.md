@@ -46,10 +46,10 @@
 6. Creating a new schema: Database from view - Databases - postgres - schema - right click on schema - create new schema
 7. Execute SQL script - ctrl + enter
 8. Script save - file menu - save as
-9. Import excel/csv file:
+9. Import excel/csv file:  
    a. Exploring data type and data size (bigint or int)   
    b. Schema - right on the that schema - import data - select the csv location - next - configure column structure option at the top right corner - check and configure the columns based on exploration before - next - proceed - next.
-10. Export Data:
+10. Export Data:  
     a. From Schema: schema - table - right click on table - export  
     b. From Subquery Result - right click on subquery result - export data
 
