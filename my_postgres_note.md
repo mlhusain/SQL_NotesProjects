@@ -34,7 +34,7 @@
 4. Editor
 5. Status bar
 
-![image_alt] (https://github.com/mlhusain/SQL_NotesProjects/blob/580d3595b8393e3d1722f4ceea316943f04b4d30/DBeaver%20appwindow-with-markup.png)
+![image_alt] ([https://github.com/mlhusain/SQL_NotesProjects/blob/580d3595b8393e3d1722f4ceea316943f04b4d30/DBeaver%20appwindow-with-markup.png](https://github.com/mlhusain/SQL_NotesProjects/blob/main/DBeaver%20appwindow-with-markup.png?raw=true))
 
 ## DBeaver - Uses
 1. Opening a new script - from toolbar (blank page sign)
