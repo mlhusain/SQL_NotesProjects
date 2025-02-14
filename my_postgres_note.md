@@ -41,13 +41,15 @@
 2. File opening - from file menu (not from laptop location)
 3. Database connection after installing DBeaver - from toolbar (plug sign)
 4. Database and schema connection of a new script and an opening file - from toolbar - a dropdown ( database and page sign) --- Otherwise it will show no active connection
-5. Creating a new schema: Database from view - Databases - postgres - schema - right click on schema - create new schema
-6. Execute SQL script - ctrl + enter
-7. Script save - file menu - save as
-8. Import excel/csv file:
+![image_alt](https://github.com/mlhusain/SQL_NotesProjects/blob/main/Connecting%20Database%20and%20Schema.PNG?raw=true)
+
+6. Creating a new schema: Database from view - Databases - postgres - schema - right click on schema - create new schema
+7. Execute SQL script - ctrl + enter
+8. Script save - file menu - save as
+9. Import excel/csv file:
    a. Exploring data type and data size (bigint or int)
    b. Schema - right on the that schema - import data - select the csv location - next - configure column structure option at the top right corner - check and configure the columns based on exploration before - next - proceed - next.
-9. Export Data:
+10. Export Data:
     a. From Schema: schema - table - right click on table - export
     b. From Subquery Result - right click on subquery result - export data
 
