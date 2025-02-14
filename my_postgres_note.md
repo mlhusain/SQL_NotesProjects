@@ -50,7 +50,7 @@
    a. Exploring data type and data size (bigint or int)\ 
    b. Schema - right on the that schema - import data - select the csv location - next - configure column structure option at the top right corner - check and configure the columns based on exploration before - next - proceed - next.
 10. Export Data:
-    a. From Schema: schema - table - right click on table - export\ 
+    a. From Schema: schema - table - right click on table - export
     b. From Subquery Result - right click on subquery result - export data
 
 ---
