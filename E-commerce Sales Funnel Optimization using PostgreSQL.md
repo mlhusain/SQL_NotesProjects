@@ -1,23 +1,23 @@
-🛒 E-Commerce Sales Funnel & Revenue Analysis
-PostgreSQL + Power BI Project
+📝 Executive Summary: E-commerce Clickstream Data Analytics
+Project Title: Behavioral Analysis and Conversion Optimization of E-commerce User Journeys.
 
+Objective:
+To analyze a dataset of 9,381 user events to identify bottlenecks in the sales funnel, evaluate the effectiveness of various marketing channels, and derive actionable insights for increasing ROI.
 
-📌 1️⃣ Project Overview
+Key Technical Contributions:
 
-This project analyzes clickstream user behavior data from an e-commerce platform to identify:
+Data Engineering: Performed data cleaning and type-casting on raw event logs using PostgreSQL, converting string-based timestamps into TIMESTAMP objects for temporal analysis.
 
-Funnel drop-offs
+Funnel Visualization: Engineered a multi-stage conversion funnel (Page View → Add to Cart → Checkout → Purchase) which revealed a total churn rate of 83.48%.
 
-Conversion rates
+Performance Metrics: Computed Conversion Rates (CR) across disparate traffic sources, identifying Email Marketing as the most efficient channel with a 33.91% CR, while Organic search drove the highest absolute revenue ($37,279).
 
-Channel performance
+User Behavioral Profiling: Leveraged SQL window functions and aggregations to calculate session durations and identify power users (users with >5 distinct event types).
 
-Revenue metrics
-
-Time-to-purchase behavior
+Business Impact:
+The analysis pinpointed a significant drop-off between the add_to_cart and purchase stages. By identifying that Social Media traffic has the lowest conversion rate (6.93%), I recommended a strategic reallocation of the marketing budget towards high-converting channels like Email and Paid Ads to optimize customer acquisition costs (CAC).
 
 All analysis is performed using PostgreSQL (CTEs, Conditional Aggregation, Time Interval Analysis) and visualized in Power BI.
-
 
 ```sql
 
