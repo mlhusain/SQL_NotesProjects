@@ -1,5 +1,7 @@
 🛒 E-Commerce Sales Funnel & Revenue Analysis
 PostgreSQL + Power BI Project
+
+
 📌 1️⃣ Project Overview
 
 This project analyzes clickstream user behavior data from an e-commerce platform to identify:
