@@ -19,6 +19,7 @@ The analysis pinpointed a significant drop-off between the add_to_cart and purch
 
 All analysis is performed using PostgreSQL (CTEs, Conditional Aggregation, Time Interval Analysis) and visualized in Power BI.
 
+
 ```sql
 
 ---1)
