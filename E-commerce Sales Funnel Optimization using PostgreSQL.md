@@ -28,6 +28,32 @@ SELECT event_type from user_events GROUP BY event_type;
 
 SELECT traffic_source from user_events GROUP BY traffic_source;
 
+```
+| event_id | user_id | event_type     | event_date                  | product_id | amount | traffic_source |
+|----------|--------:|----------------|-----------------------------|-----------:|-------:|---------------|
+| 8490     | 5024    | page_view      | 2025-12-30 04:58:24.517 +0600 | 205        |        | social        |
+| 2296     | 1713    | page_view      | 2025-12-30 05:10:26.276 +0600 | 201        |        | organic       |
+| 3896     | 2558    | page_view      | 2025-12-30 05:11:09.001 +0600 | 404        |        | organic       |
+| 2297     | 1713    | add_to_cart    | 2025-12-30 05:13:26.276 +0600 | 201        |        | organic       |
+| 2298     | 1713    | checkout_start | 2025-12-30 05:16:26.276 +0600 | 201        |        | organic       |
+| 8438     | 4993    | page_view      | 2025-12-30 05:20:55.416 +0600 | 205        |        | organic       |
+| 2299     | 1713    | payment_info   | 2025-12-30 05:23:26.276 +0600 | 201        |        | organic       |
+| 2300     | 1713    | purchase       | 2025-12-30 05:25:26.276 +0600 | 201        | 48.3   | organic       |
+| 8649     | 5102    | page_view      | 2025-12-30 05:25:27.600 +0600 | 102        |        | organic       |
+| 3897     | 2558    | add_to_cart    | 2025-12-30 05:29:09.001 +0600 | 404        |        | organic       |
+| 2101     | 1591    | page_view      | 2025-12-30 05:42:46.668 +0600 | 305        |        | organic       |
+| 3368     | 2276    | page_view      | 2025-12-30 05:48:25.516 +0600 | 201        |        | organic       |
+| 8335     | 4942    | page_view      | 2025-12-30 06:01:39.005 +0600 | 205        |        | organic       |
+| 3369     | 2276    | add_to_cart    | 2025-12-30 06:03:25.516 +0600 | 201        |        | organic       |
+| 7020     | 4279    | page_view      | 2025-12-30 06:27:01.633 +0600 | 101        |        | social        |
+| 3889     | 2554    | page_view      | 2025-12-30 06:27:29.959 +0600 | 102        |        | paid_ads      |
+| 2547     | 1850    | page_view      | 2025-12-30 06:28:28.075 +0600 | 205        |        | organic       |
+| 2548     | 1850    | add_to_cart    | 2025-12-30 06:46:28.075 +0600 | 205        |        | organic       |
+| 2549     | 1850    | checkout_start | 2025-12-30 06:49:28.075 +0600 | 205        |        | organic       |
+| 2550     | 1850    | payment_info   | 2025-12-30 06:56:28.075 +0600 | 205        |        | organic       |
+
+
+```sql
 ---2) Define Sale Funnel and the Different Stages (Corrected for PostgreSQL):
 WITH funnel_stages AS (
     SELECT 
@@ -54,9 +80,9 @@ WITH funnel_stages AS (
     WHERE event_date >= (SELECT MAX(event_date) FROM user_events) - INTERVAL '90 days'
 ) -- এখানে কোনো সেমিকোলন হবে না। ডাটাসেটের লেটেস্ট ডেট থেকে পিছনের ৩০ দিনের ডাটা নিয়েছে।
 SELECT * FROM funnel_stages; -- সেমিকোলন হবে একদম শেষে
+```
 
-
-
+```sql
 ---3) Conversion Rate through the Funnel:
 
 WITH funnel_stages AS (
@@ -82,8 +108,9 @@ SELECT
 	round(purchases*100/views_) AS overall_conversion_rate
 FROM funnel_stages;
 
+```
 
-
+```sql
 ---4) Funnel By Source:
 WITH funnel_by_source AS (
 SELECT traffic_source,
@@ -97,9 +124,9 @@ SELECT traffic_source,
     GROUP BY traffic_source 
 )
 SELECT * FROM funnel_by_source;
+```
 
-
-
+```sql
 ---5) Funnel By Source and Conversion Rate:
 WITH funnel_by_source AS (
 SELECT traffic_source,
@@ -160,7 +187,9 @@ SELECT
     ROUND(AVG(EXTRACT(EPOCH FROM (purchase_time - cart_time))/60), 2) AS avg_cart_to_purchase_minutes,
     ROUND(AVG(EXTRACT(EPOCH FROM (purchase_time - view_time))/60), 2) AS avg_total_journey_minutes
 FROM user_journey;
+```
 
+```sql
 ---7) Revenue Funnel Analysis:
 WITH funnel_revenue AS (
     SELECT 
